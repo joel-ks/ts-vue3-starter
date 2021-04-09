@@ -13,6 +13,22 @@ module.exports = merge(common, {
     // https://webpack.js.org/configuration/devtool/
     devtool: "inline-source-map",
 
+    resolve: {
+        alias: {"vue": "vue/dist/vue.esm-bundler"}
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    "vue-style-loader",
+                    "css-loader"
+                ]
+            }
+        ]
+    },
+
     // Configure a development server with hot reloading. This will watch the files included in the bundle, rebuild the
     // bundle when they're modified, and trigger a refresh of the page in the browser.
     devServer: {

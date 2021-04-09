@@ -1,5 +1,6 @@
 require("webpack");
 const path = require("path");
+const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
     // File which is the entry point for the app. Webpack will walk the tree of all modules imported by this and bundle
@@ -26,9 +27,23 @@ module.exports = {
         rules: [
             {
                 test: /\.[jt]s$/,
-                exclude: /node_modules/,
-                use: ["ts-loader"]
+                use: {
+                    loader: "ts-loader",
+                    options: {
+                        appendTsSuffixTo: [/\.vue$/]
+                    }
+                },
+                exclude: /node_modules/
+            },
+            {
+                test: /\.vue$/,
+                use: "vue-loader",
             }
         ]
-    }
+    },
+
+    plugins: [
+        // make sure to include the plugin!
+        new VueLoaderPlugin()
+      ]
 };

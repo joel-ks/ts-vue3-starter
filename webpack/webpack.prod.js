@@ -1,5 +1,6 @@
 require("webpack");
 const { merge } = require("webpack-merge");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 
 const common = require("./webpack.config");
@@ -13,6 +14,24 @@ module.exports = merge(common, {
     // Generate source maps for easier debugging (the browser console will show the original filename and line number)
     // https://webpack.js.org/configuration/devtool/
     devtool: "source-map",
+
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader"
+                ]
+            }
+        ]
+    },
+
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "styles.css"
+        })
+    ],
 
     // Optimization for the production bundle
     optimization: {
