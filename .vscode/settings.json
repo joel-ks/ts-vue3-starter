@@ -1,0 +1,10 @@
+{
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "markdown.extension.toc.levels": "2..3",
+    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true
+}

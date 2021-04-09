@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "sourceMap": true,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+    },
+    "exclude": ["test"]
+}

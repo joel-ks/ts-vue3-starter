@@ -1,0 +1,16 @@
+{
+    "env": {
+        "node": true,
+        "jest/globals": true
+    },
+    "plugins": [
+        "jest"
+    ],
+    "extends": [
+        "plugin:jest/recommended",
+        "plugin:jest/style"
+    ],
+    "rules": {
+        "jest/no-disabled-tests": "warn"
+    }
+}
