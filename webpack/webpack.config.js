@@ -1,4 +1,4 @@
-require("webpack");
+const webpack = require("webpack");
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 
@@ -43,7 +43,12 @@ module.exports = {
     },
 
     plugins: [
-        // make sure to include the plugin!
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+
+        // https://github.com/vuejs/vue-next/tree/master/packages/vue#bundler-build-feature-flags
+        new webpack.DefinePlugin({
+            __VUE_OPTIONS_API__: true,
+            __VUE_PROD_DEVTOOLS__: false
+        })
       ]
 };
